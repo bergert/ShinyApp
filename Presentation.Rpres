@@ -38,7 +38,7 @@ Graph explanation
 The chart title shows the years selected in the slider.
 </p>
 <h2>Conclusion</h2>
-Around 1988, the collapse of several stocks is visible as a drop in global production.
+After 1988, the collapse of several stocks is visible as a drop in global production.
 <p><br>
 What is noticeable, the claims about
 the fish global stock collapsing are not true:
