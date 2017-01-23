@@ -10,7 +10,7 @@ Introduction
 
 FAO Global catch contains capture production statistics by country or territory, for the reporting year 2014; the most recent year for which data is available.
 
-This Presentation <https://bergertom.github.io/ShinyApp/Presentation.htm> 
+The shiny App is here <https://thomasberger.shinyapps.io/ShinyApp/> 
 
 GIT repo <https://github.com/bergertom/ShinyApp>.
 
