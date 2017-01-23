@@ -9,8 +9,11 @@
 library(ggplot2)
 library(dplyr)
 library(shiny)
+library(RCurl)
 
-d1 <- read.csv("../FAO_Global_Catch.csv")
+#d1 <- read.csv("../FAO_Global_Catch.csv")
+d0 <- getURL("https://raw.githubusercontent.com/bergertom/ShinyApp/gh-pages/FAO_Global_Catch.csv")
+d1 <- read.csv(text = d0)
 d2 <- aggregate(d1[,2], list(d1[,1]), sum)
 d2[,2] <- round(d2[,2]/1000,0)
 colnames(d2) <- c("Year","Quantity")
