@@ -10,7 +10,7 @@ Introduction
 
 FAO Global catch contains capture production statistics by country or territory, for the reporting year 2014; the most recent year for which data is available.
 
-Presentation <https://bergertom.github.io/ShinyApp/> 
+This Presentation <https://bergertom.github.io/ShinyApp/Presentation.htm> 
 
 GIT repo <https://github.com/bergertom/ShinyApp>.
 
@@ -32,19 +32,23 @@ Graph explanation
 ========================================================
 <br><div>
 - FAO data shown as dots (1000 tons)
-- Blue regression line, with 95% confidence interval
+- The blue regression line, with 95% confidence interval
 - Red dots show predicted (imputed using lm) catch for 2015 and 2016
 </div><p><br>
 The chart title shows the years selected in the slider.
 </p>
 <h2>Conclusion</h2>
-What is noticeable, is that the claims about
-the fish global stock collapsing are not true:
+Around 1988, the collapse of several stocks is visible as a drop in global production.
 <p><br>
-As you will observe, the data shows that global catch - apart
-from normal annual fluctuations - is not declining. For the most part,
-the regression line points is flat, or points slightly upwards.
-This indicates a annual increase in  global fish production.
+What is noticeable, the claims about
+the fish global stock collapsing are not true:
+<br>
+<b>As you will observe, the data shows that global catch - apart
+from normal annual fluctuations - is not declining. For most of the last 20 
+years, the regression line is flat, or points slightly upwards.
+This indicates a small annual increase in  global fish production.</b>
+
+
 
 Graph
 ========================================================
