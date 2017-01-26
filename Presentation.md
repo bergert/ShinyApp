@@ -1,7 +1,7 @@
 Global Capture forecast
 ========================================================
 author: Thomas Berger
-date: Jan 30, 2017
+date: Jan 26, 2017
 width: 1440
 height: 900
 
@@ -18,17 +18,7 @@ The data was loaded from the FAO query panel: <http://www.fao.org/fishery/statis
 
 To export, select country [Alphabetical], Index [All] to have all countries, click [select all]. Under time, select [2014] as year. Under Species, select [Ybk main groups], select [Fish, crustaceans and molluscs, etc.] to have data for human consumption.
 
-Selecting the year range
-========================================================
-<img src="images/slider.png" width="60%" height="50%" />
-
-The slider is used to slect the year range (from-year) (to-year), for which the catch data is presented.
-
-<a href="http://www.fao.org">FAO</a> Data is availbale from 1950 to 2014.
-
-If the last year is set to 2014, then the graph will also show predicted data points for 2015 and 2016 using linear regression.
-
-Graph explanation
+Plot explanation
 ========================================================
 <br><div>
 - FAO data shown as dots (1000 tons)
@@ -50,8 +40,39 @@ This indicates a small annual increase in  global fish production.</b>
 
 
 
-Graph
+Graph code
 ========================================================
-<img src="images/graph.png" width="100%" />
 
 
+```r
+   # read CSV file
+   d1 <- read.csv("FAO_Global_Catch.csv")
+   # aggregate, round, set column names
+   d2 <- aggregate(d1[,2], list(d1[,1]), sum)
+   d2[,2] <- round(d2[,2]/1000,0)
+   colnames(d2) <- c("Year","Quantity")
+   # in shiny, the year range is slected using the slider
+   df <- subset(d2, Year >= 1993 & Year <= 2014)
+   # generate the plot
+   myplot <- ggplot(data=df, aes(x=Year, y=Quantity)) + 
+          xlab("Year") + ylab("Catch Quantity (1000 tons)") +
+          ggtitle("Global Capture Forecast 1993-2016")+
+          geom_point() +
+          geom_smooth(method="glm")
+   # do a linear regression for the selected data
+   fit <- glm(Quantity ~ Year, data=df)  
+   # project data for future years
+   p2 <- predict(fit, data.frame(Year=c(2015,2016)))
+   d3 <- data.frame(Year=c(2015,2016), Quantity=round(p2,0))
+   # add the projection to the plot
+   myplot <- myplot + geom_point(data=d3, colour="red")
+```
+
+Graph result
+========================================================
+
+```r
+   myplot
+```
+
+<img src="Presentation-figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="1200px" height="700px" />

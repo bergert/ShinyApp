@@ -2,7 +2,7 @@ Global Capture forecast
 ========================================================
 
 author: Thomas Berger
-date: Jan 30, 2017
+date: Jan 26, 2017
 
 
 
