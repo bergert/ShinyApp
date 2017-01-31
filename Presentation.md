@@ -1,7 +1,7 @@
 Global Capture forecast
 ========================================================
 author: Thomas Berger
-date: Jan 26, 2017
+date: Jan 31, 2017
 width: 1440
 height: 900
 
@@ -40,7 +40,7 @@ This indicates a small annual increase in  global fish production.</b>
 
 
 
-Graph code
+Server calculation
 ========================================================
 
 
@@ -51,7 +51,7 @@ Graph code
    d2 <- aggregate(d1[,2], list(d1[,1]), sum)
    d2[,2] <- round(d2[,2]/1000,0)
    colnames(d2) <- c("Year","Quantity")
-   # in shiny, the year range is slected using the slider
+   # in the server-app, the year range is slected using the slider
    df <- subset(d2, Year >= 1993 & Year <= 2014)
    # generate the plot
    myplot <- ggplot(data=df, aes(x=Year, y=Quantity)) + 
